@@ -38,3 +38,9 @@ El proyecto está configurado para automatizar la generación de las clases de J
    ```bash
    git clone (https://github.com/RckOlv/EduObject-Grupo8.git)
    cd EduObject-Grupo8
+
+2. **Ejecutar el compilador y el Mini IDE:**
+   Abre tu terminal en la raiz del proyecto y ejecuta el siguiente comando:
+
+    ```bash
+   mvn clean compile exec:java -Dexec.mainClass="compilador.MiniIDE"
