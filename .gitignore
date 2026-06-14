@@ -1,0 +1,17 @@
+# Archivos compilados
+*.class
+
+# Carpetas de construcción de Maven
+target/
+
+# Archivos de IDEs 
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+
+# Archivos temporales de sistema operativo
+.DS_Store
+Thumbs.db

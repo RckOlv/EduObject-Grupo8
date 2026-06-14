@@ -1,0 +1,12 @@
+clase Producto {
+    texto nombre;
+    decimal precio;
+
+    metodo actualizarPrecio(decimal nuevoPrecio) {
+        precio = nuevoPrecio;
+        imprimir("El precio fue actualizado exitosamente");
+    }
+}
+
+Producto alfajor = nuevo Producto();
+alfajor.actualizarPrecio(1500.50);

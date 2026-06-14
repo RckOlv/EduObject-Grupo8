@@ -1,0 +1,68 @@
+package compilador;
+import java_cup.runtime.*;
+
+parser code {:
+    public void syntax_error(Symbol s) {
+        System.err.println("Error sintáctico en la línea " + s.left + ", columna " + s.right + ". No se esperaba el componente: '" + s.value + "'.");
+    }
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception {
+        System.err.println("Error sintáctico fatal. Compilación detenida.");
+    }
+:}
+
+terminal CLASE, TEXTO, DECIMAL, METODO, NUEVO, IMPRIMIR;
+terminal LLAVE_A, LLAVE_C, PAREN_A, PAREN_C, IGUAL, PYC, PUNTO, COMA;
+terminal String ID, NUMERO, CADENA;
+
+non terminal programa, lista_clases, definicion_clase, miembro_list, miembro;
+non terminal decl_atributo, decl_metodo, tipo, lista_sentencias, sentencia;
+non terminal asignacion, imprimir, invocacion, instanciacion;
+non terminal lista_params, params_no_vacio, param;
+non terminal lista_args, args_no_vacio, argumento, expresion;
+
+start with programa;
+
+/* Reglas principales limpias de ambigüedades */
+programa ::= lista_clases lista_sentencias ;
+
+lista_clases ::= lista_clases definicion_clase | /* vacío */ ;
+
+definicion_clase ::= CLASE ID LLAVE_A miembro_list LLAVE_C ;
+
+miembro_list ::= miembro_list miembro | /* vacío */ ;
+
+miembro ::= decl_atributo | decl_metodo ;
+
+decl_atributo ::= tipo ID PYC ;
+
+tipo ::= TEXTO | DECIMAL ;
+
+decl_metodo ::= METODO ID PAREN_A lista_params PAREN_C LLAVE_A lista_sentencias LLAVE_C ;
+
+/* Listas con separadores (comas) */
+lista_params ::= params_no_vacio | /* vacío */ ;
+
+params_no_vacio ::= params_no_vacio COMA param | param ;
+
+param ::= tipo ID ;
+
+lista_sentencias ::= lista_sentencias sentencia | /* vacío */ ;
+
+sentencia ::= asignacion | imprimir | invocacion | instanciacion ;
+
+asignacion ::= ID IGUAL expresion PYC ;
+
+imprimir ::= IMPRIMIR PAREN_A CADENA PAREN_C PYC ;
+
+invocacion ::= ID PUNTO ID PAREN_A lista_args PAREN_C PYC ;
+
+instanciacion ::= ID ID IGUAL NUEVO ID PAREN_A PAREN_C PYC ;
+
+/* Listas con separadores (comas) */
+lista_args ::= args_no_vacio | /* vacío */ ;
+
+args_no_vacio ::= args_no_vacio COMA argumento | argumento ;
+
+argumento ::= ID | NUMERO | CADENA ;
+
+expresion ::= ID | NUMERO | CADENA ;
