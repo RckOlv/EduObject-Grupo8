@@ -6,7 +6,7 @@ El proyecto consiste en la implementación de un **analizador léxico y sintáct
 
 
 
-### 👥 Integrantes [cite: 1]
+### 👥 Integrantes 
 * Domínguez Kevin Gabriel
 * Grabovieski Matías Alejandro
 * Olivieri Ricardo
