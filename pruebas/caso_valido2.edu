@@ -1,0 +1,12 @@
+clase Vehiculo {
+    texto marca; 
+    decimal kilometraje;
+
+    metodo registrarViaje(decimal distancia){
+        kilometraje = distancia;
+        imprimir("Viaje registrado con éxito");
+    }
+}
+
+Vehiculo miAuto = nuevo Vehiculo();
+miAuto.registrarViaje(120.50);

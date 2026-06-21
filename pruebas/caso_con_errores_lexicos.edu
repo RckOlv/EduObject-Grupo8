@@ -1,0 +1,5 @@
+clase Cuenta{
+    texto titular;
+    decimal saldo@;
+    texto 1erApellido;
+}

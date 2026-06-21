@@ -1,0 +1,11 @@
+clase Libro{
+    
+    texto titulo decimal precio;
+       
+        metodo aplicarDescuento(decimal valor){
+            precio = valor;
+            imprimir("Descuento aplicado");
+        }
+}
+
+Libro miLibro = nuevo Libro(;
