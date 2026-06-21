@@ -15,7 +15,7 @@ El proyecto consiste en la implementación de un **analizador léxico y sintáct
 
 ## 🛠️ Tecnologías Utilizadas
 Para el desarrollo de este compilador se utilizaron las siguientes herramientas:
-* **Java (JDK 17):** Lenguaje base del proyecto.
+* **Java (JDK 25):** Lenguaje base del proyecto.
 * **Maven:** Gestor de dependencias y ciclo de construcción.
 * **JFlex:** Generador del analizador léxico.
 * **CUP (Constructor of Useful Parsers):** Generador del analizador sintáctico LALR.
@@ -25,7 +25,7 @@ Para el desarrollo de este compilador se utilizaron las siguientes herramientas:
 
 ## ⚙️ Requisitos Previos
 Para poder compilar y ejecutar el proyecto en tu máquina local, es necesario contar con:
-1. **Java Development Kit (JDK) 11 o superior** (Recomendado JDK 17).
+1. **Java Development Kit (JDK) 25**.
 2. **Apache Maven** instalado y configurado en las variables de entorno (`PATH`).
 
 ---
